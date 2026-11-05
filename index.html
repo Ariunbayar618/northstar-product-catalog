@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse products from the DummyJSON API.">
+  <title>Northstar — Product Catalog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Northstar home"><span class="brand-mark">N</span> northstar<span class="brand-dot">.</span></a>
+    <nav aria-label="Main navigation"><a class="active" href="#catalog">Shop</a><a href="#about">About</a></nav>
+    <a class="api-pill" href="https://dummyjson.com/docs/products" target="_blank" rel="noreferrer">Powered by DummyJSON <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> THE EVERYDAY EDIT</p>
+        <h1>Find your next<br><span>favorite thing.</span></h1>
+        <p class="hero-sub">A considered collection of everyday essentials, tech, and little upgrades.</p>
+        <a class="hero-link" href="#catalog">Explore the collection <span>↓</span></a>
+      </div>
+      <div class="hero-art" aria-label="Decorative product showcase">
+        <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+        <div class="hero-sticker">GOOD<br>FINDS<br>ONLY ✳</div>
+        <div class="hero-card hero-card-back"><span>01 / DAILY OBJECTS</span><div class="abstract-shape shape-back"></div></div>
+        <div class="hero-card hero-card-front"><span>CURATED FOR YOU</span><div class="abstract-shape shape-front"></div><b>Make room<br>for better.</b></div>
+      </div>
+    </section>
+
+    <section class="catalog-section" id="catalog">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE CATALOG</p><h2>Shop the collection</h2></div>
+        <p class="result-count" id="resultCount">Loading products…</p>
+      </div>
+
+      <div class="toolbar">
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search products…" autocomplete="off"><kbd>⌘ K</kbd></label>
+        <div class="toolbar-controls">
+          <select id="categorySelect" aria-label="Filter by category"><option value="">All categories</option></select>
+          <select id="sortSelect" aria-label="Sort products">
+            <option value="default">Featured</option>
+            <option value="price-asc">Price: low to high</option>
+            <option value="price-desc">Price: high to low</option>
+            <option value="rating-desc">Top rated</option>
+            <option value="title-asc">Name: A to Z</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="status" class="status" role="status">Loading the collection…</div>
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      <div class="pagination">
+        <button id="prevBtn" class="page-btn" disabled>← Previous</button>
+        <span id="pageInfo">Page 1</span>
+        <button id="nextBtn" class="page-btn" disabled>Next →</button>
+      </div>
+    </section>
+
+    <section class="about-strip" id="about">
+      <div><p class="eyebrow">A NOTE ON THIS PROJECT</p><h2>Simple shopping.<br><span>Smarter browsing.</span></h2></div>
+      <p>This demo catalog fetches sample product data from the DummyJSON API. Product prices, ratings, and stock are for demonstration only and are not real offers.</p>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">N</span> northstar<span class="brand-dot">.</span></a><span>Built with HTML, CSS & JavaScript</span><span>© 2026 Northstar Demo</span></footer>
+
+  <dialog id="productDialog" class="product-dialog">
+    <button class="dialog-close" id="dialogClose" aria-label="Close details">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+</body>
+</html>
